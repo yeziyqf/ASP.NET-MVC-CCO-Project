@@ -37,7 +37,7 @@ $RECYCLE.BIN/
 .Spotlight-V100
 .TemporaryItems
 .Trashes
-.VolumeIcon.icns
+. VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
 .AppleDB
