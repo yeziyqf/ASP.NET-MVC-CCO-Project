@@ -1,0 +1,17 @@
+﻿@using InterviewEvaluation.Models
+@model UsersEditViewModel
+@{
+    ViewBag.Title = "User Edit";
+}
+
+<h3>@ViewBag.Title.</h3>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                
+            }
+        </section>
+    </div>
+</div>
