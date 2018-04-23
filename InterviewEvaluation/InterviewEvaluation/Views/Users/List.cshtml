@@ -10,13 +10,13 @@
     <table class="table">
         <tr>
             <th>
-                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
             </th>
             <th>
-                First Name
+                FullName
             </th>
             <th>
-                @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
             </th>
             <th></th>
         </tr>
@@ -64,6 +64,31 @@
         <div id="div1">
             @Html.DropDownList("Users", new List<SelectListItem>(), new { @id = "UserList"})
         </div>
+
+        <!--Search Results Form-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="SearchResultTable">
+                <tr>
+                    <td id="SearchResultID">
+                    </td>
+                    <td id="SearchResultEmail">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
     </div>
 </div>
 
@@ -87,17 +112,34 @@
     }
 
     function OnSuccess(response) {
-        alert("Success!");
+        //alert("Success!");
         console.log(response);
+        console.log('response Text: ' + response[0].Text);
+        console.log('response Value: ' + response[0].Value);
 
-        // Original
+        // Dropdown List
+        document.getElementById('UserList').options.length = 0
         var select = $("#UserList")
-
+        
         $.each(response, function (i) {
             var option = document.createElement('option');
             option.text = response[i].Text;
             option.value = response[i].Value;
             select.append(option);
+        })
+
+        // Search Result Table
+        var SearchResultID = $("#SearchResultID")
+        var ResultEmail = $("#SearchResultEmail")
+
+        // Delete the orginal search results.
+        $("#SearchResultID").empty("");
+        $("#SearchResultEmail").empty("");
+
+        // Update each column separately.
+        $.each(response, function (i) {
+            SearchResultID.append('<tr><td>' + response[i].Value + '</td></tr>');
+            ResultEmail.append('<tr><td>' + response[i].Text + '</td></tr>');
         })
     }
 
