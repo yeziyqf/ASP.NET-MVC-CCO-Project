@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Services; 
+using System.Web.Services;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace InterviewEvaluation.Controllers
 {
@@ -61,7 +63,7 @@ namespace InterviewEvaluation.Controllers
         //[HttpGet]
         [HttpPost]
         [System.Web.Services.WebMethod]
-        [WebInvoke(UriTemplate = "MyMethod", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        [Route("api/Search")]
         public JsonResult Search(string query)
         {
             List<EntityModels.AspNetUser> users = new List<EntityModels.AspNetUser>();

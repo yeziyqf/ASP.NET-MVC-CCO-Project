@@ -59,7 +59,7 @@
 
         <div>
             @Html.TextBox("query", "", new { @id = "query" })
-            <button type="submit" onclick="markLoveQiaofei()">Search</button>
+            <button type="submit" onclick="getSearch()">Search</button>
         </div>
         <div id="div1">
             @Html.DropDownList("Users", new List<SelectListItem>(), new { @id = "UserList"})
@@ -70,15 +70,18 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     console.log("hello_List!")
-    function markLoveQiaofei() {
+    function getSearch() {
         console.log($("#query").val())
+        console.log(typeof($("#query").val()))
         $.ajax({
             type: "POST",
-            url: "../../../Controllers/UsersController.aspx/Search",
-            //url: "./UsersController.aspx/Search",
-            data: { query: $("#query").val() },
-            //contentType: "application/json; charset=utf-8",
-            //dataType: "json",
+            //url: "../../../Controllers/Search",
+            url: "./Search",
+            //url: "/Controllers/Search",
+            //data: { query: $("#query").val() },
+            data:  $("#query").val(),
+            //contentType: false,
+            dataType: "json",
             success: OnSuccess,
             failure: function (response) {
                 alert(response.d);
@@ -88,7 +91,7 @@
 
     function OnSuccess(response) {
         alert("Success!");
-        alert(response.d);
+        console.log(response);
     }
 </script>
 

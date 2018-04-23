@@ -58,7 +58,7 @@ namespace InterviewEvaluation.Controllers
         }
 
         // Use this method to complete the JavaScript section of the evaluation.
-		[HttpGet]
+		[HttpPost]
         [System.Web.Services.WebMethod]
         public JsonResult Search(string query)
         {
