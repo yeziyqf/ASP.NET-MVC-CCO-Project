@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Services; 
+using System.Web.Services;
 
 namespace InterviewEvaluation.Controllers
 {
@@ -58,10 +58,8 @@ namespace InterviewEvaluation.Controllers
         }
 
         // Use this method to complete the JavaScript section of the evaluation.
-        //[HttpGet]
-        [HttpPost]
+		[HttpGet]
         [System.Web.Services.WebMethod]
-        [WebInvoke(UriTemplate = "MyMethod", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         public JsonResult Search(string query)
         {
             List<EntityModels.AspNetUser> users = new List<EntityModels.AspNetUser>();

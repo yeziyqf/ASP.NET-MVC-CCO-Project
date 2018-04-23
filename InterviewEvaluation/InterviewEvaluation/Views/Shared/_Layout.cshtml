@@ -6,24 +6,24 @@
     <title>@ViewBag.Title - Interview Evaluation</title>
     <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Interview Evaluation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Users", "List", "Users")</li>
-                </ul>
-                <ul class="nav navbar-nav pull-right">
-                    @if (User.Identity.IsAuthenticated)
+        <body>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Interview Evaluation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Users", "List", "Users")</li>
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+                            @if (User.Identity.IsAuthenticated)
                     {
                         <li class="text-muted navbar-btn" style="padding-top: 7px;">@User.Identity.Name</li>
                         <li>@Html.ActionLink("Edit Profile", "Edit", "Users")</li>
@@ -33,21 +33,24 @@
                     {
                         <li>@Html.ActionLink("Login", "Login", "Auth")</li>
                     }
-                </ul>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        <br />
-        <br />
-        <br />
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Purdue CCO Interview Evaluation</p>
-        </footer>
-    </div>
-</body>
-</html>
+            <div class="container body-content">
+                <br />
+                <br />
+                <br />
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Purdue CCO Interview Evaluation</p>
+                </footer>
+            </div>
 
-<script type="text/javascript" src="~/Scripts/jquery-3.2.1.js"></script>
+            <script type="text/javascript" src='@Url.Content("~/Scripts/Users/List.js")'></script>
+            <script>
+                console.log("hello!")
+            </script>
+        </body>
+        </html>

@@ -56,11 +56,10 @@ function OnSuccess(response) {
 // End changes.
 
 // Solution:
-function markLoveQiaofei() {
-    console.log($("#query").val())
+function SearchUsers(query) {
     $.ajax({
         type: "POST",
-        url: "~/Controllers/UsersController/Search",
+        url: "~/Controllers/UsersController.cs/Search",
         data: { query: $("#query").val() },
         //contentType: "application/json; charset=utf-8",
         //dataType: "json",
@@ -71,8 +70,3 @@ function markLoveQiaofei() {
     });
 }
 // End solution.
-
-$(document).ready(function () {
-    console.log(123123123)
-    console.log($("#query"))
-})
