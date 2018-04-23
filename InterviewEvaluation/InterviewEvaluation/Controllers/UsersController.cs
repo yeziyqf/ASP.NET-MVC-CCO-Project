@@ -63,7 +63,6 @@ namespace InterviewEvaluation.Controllers
         //[HttpGet]
         [HttpPost]
         [System.Web.Services.WebMethod]
-        [Route("api/Search")]
         public JsonResult Search(string query)
         {
             List<EntityModels.AspNetUser> users = new List<EntityModels.AspNetUser>();

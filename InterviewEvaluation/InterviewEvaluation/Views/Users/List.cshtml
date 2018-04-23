@@ -79,7 +79,8 @@
             url: "./Search",
             //url: "/Controllers/Search",
             //data: { query: $("#query").val() },
-            data:  $("#query").val(),
+            //data:  $("#query").val(),
+            data: { query: $("#query").val() },
             //contentType: false,
             dataType: "json",
             success: OnSuccess,
@@ -93,6 +94,7 @@
         alert("Success!");
         console.log(response);
     }
+
 </script>
 
 
