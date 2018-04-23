@@ -77,11 +77,7 @@
             type: "POST",
             //url: "../../../Controllers/Search",
             url: "./Search",
-            //url: "/Controllers/Search",
-            //data: { query: $("#query").val() },
-            //data:  $("#query").val(),
             data: { query: $("#query").val() },
-            //contentType: false,
             dataType: "json",
             success: OnSuccess,
             failure: function (response) {
@@ -93,6 +89,16 @@
     function OnSuccess(response) {
         alert("Success!");
         console.log(response);
+
+        // Original
+        var select = $("#UserList")
+
+        $.each(response, function (i) {
+            var option = document.createElement('option');
+            option.text = response[i].Text;
+            option.value = response[i].Value;
+            select.append(option);
+        })
     }
 
 </script>
