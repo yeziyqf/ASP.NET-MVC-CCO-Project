@@ -119,22 +119,63 @@ namespace InterviewEvaluation.Controllers
             // End changes.
 
             // Solution:
-            EntityModels.AspNetUser user = db.AspNetUsers.FirstOrDefault(x => x.Id == model.Id);
-
-            if (model.NewPassword != string.Empty)
+            if (model.Id != 0)
             {
-                user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
-            }
+                EntityModels.AspNetUser user = db.AspNetUsers.FirstOrDefault(x => x.Id == model.Id);
 
-            if (model.UserRole != user.AspNetRoles.Id)
+                if (model.NewPassword != string.Empty)
+                {
+                    user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
+                }
+
+                if (model.UserRole != user.AspNetRoles.Id)
+                {
+                    user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    if (model.UserRole == 1)
+                    {
+                        user.AspNetRoles.Name = "User";
+                    }
+                    else if (model.UserRole == 0)
+                    {
+                        user.AspNetRoles.Name = "Admin";
+                    }
+
+                }
+
+                db.SaveChanges();
+                return RedirectToAction("Edit", new { id = user.Id });
+            }
+            else
             {
-                user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
-            }
+                EntityModels.AspNetUser user = new EntityModels.AspNetUser();
+                user = db.AspNetUsers.FirstOrDefault(x => x.Email == User.Identity.Name);
 
-            db.SaveChanges();
+                if (model.NewPassword != string.Empty)
+                {
+                    user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
+                }
+
+                if (model.UserRole != user.AspNetRoles.Id)
+                {
+                    user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    if (model.UserRole == 1)
+                    {
+                        user.AspNetRoles.Name = "User";
+                    }
+                    else if (model.UserRole == 0)
+                    {
+                        user.AspNetRoles.Name = "Admin";
+                    }
+
+                }
+
+                db.SaveChanges();
+                return RedirectToAction("Edit", new { id = user.Id });
+            }
+            
             // End solution.
 
-            return RedirectToAction("Edit", new { id = user.Id });
+            
         }
     }
 }

@@ -10,7 +10,38 @@
         <section id="loginForm">
             @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                
+                <h4>Edit user account settings.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @User.Identity.Name
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @*@Html.TextBoxFor(m => m.UserRole, new { @class = "form-control" })*@
+                        @Html.DropDownListFor(m => m.UserRole, new List<SelectListItem>
+                            //{ new SelectListItem{Text="Admin", Value="User"},
+                            //  new SelectListItem{Text="User", Value="Admin"}}, "Please select")
+                         { new SelectListItem{Text="Admin", Value="2"},
+                              new SelectListItem{Text="User", Value="1"}}, "Please select")
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NewPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Edit" />
+                    </div>
+                </div>
             }
         </section>
     </div>
