@@ -14,18 +14,18 @@
 //    });
 //});
 
-function SearchUsers_answer(query) {
-    $.ajax({
-        type: "POST",
-        url: "~/Controllers/UsersController.cs/Search",
-        data: { query: $("#query").val() },
-        //contentType: "application/json; charset=utf-8",
-        //dataType: "json",
-        success: OnSuccess,
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
+//function SearchUsers_answer(query) {
+//    $.ajax({
+//        type: "POST",
+//        url: "~/Controllers/UsersController.cs/Search",
+//        data: { query: $("#query").val() },
+//        //contentType: "application/json; charset=utf-8",
+//        //dataType: "json",
+//        success: OnSuccess,
+//        failure: function (response) {
+//            alert(response.d);
+//        }
+//    });
 
 
     //alert("Starting searching");
@@ -46,30 +46,30 @@ function SearchUsers_answer(query) {
     //        })
     //    }
     //});
-}
+//}
 
-function OnSuccess(response) {
-    alert("Success!");
-    alert(response.d);
-}
+//function OnSuccess(response) {
+//    alert("Success!");
+//    alert(response.d);
+//}
 
 // End changes.
 
 // Solution:
-function markLoveQiaofei() {
-    console.log($("#query").val())
-    $.ajax({
-        type: "POST",
-        url: "~/Controllers/UsersController/Search",
-        data: { query: $("#query").val() },
-        //contentType: "application/json; charset=utf-8",
-        //dataType: "json",
-        success: OnSuccess,
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
-}
+//function markLoveQiaofei() {
+//    console.log($("#query").val())
+//    $.ajax({
+//        type: "POST",
+//        url: "~/Controllers/UsersController/Search",
+//        data: { query: $("#query").val() },
+//        //contentType: "application/json; charset=utf-8",
+//        //dataType: "json",
+//        success: OnSuccess,
+//        failure: function (response) {
+//            alert(response.d);
+//        }
+//    });
+//}
 // End solution.
 
 $(document).ready(function () {
