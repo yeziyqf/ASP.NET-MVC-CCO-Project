@@ -119,22 +119,53 @@ namespace InterviewEvaluation.Controllers
             // End changes.
 
             // Solution:
-            EntityModels.AspNetUser user = db.AspNetUsers.FirstOrDefault(x => x.Id == model.Id);
 
-            if (model.NewPassword != string.Empty)
+            
+            if (model.Id != 0)
             {
-                user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
+                EntityModels.AspNetUser user = db.AspNetUsers.FirstOrDefault(x => x.Id == model.Id);
+                // Modifying password and roles.
+                if (model.NewPassword != string.Empty)
+                {
+                    user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
+                }
+
+                if (model.UserRole != user.AspNetRoles.Id)
+                {
+                    //user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    //user.AspNetRoles.Id = model.UserRole;
+                    user.AspNetRoles.Name = model.UserRole.ToString();
+                }
+
+                db.SaveChanges();
+                return RedirectToAction("Edit", new { id = user.Id });                
+            }
+            else
+            {
+                EntityModels.AspNetUser user = new EntityModels.AspNetUser();
+                user = db.AspNetUsers.FirstOrDefault(x => x.Email == User.Identity.Name);
+
+                // Modifying password and roles.
+                if (model.NewPassword != string.Empty)
+                {
+                    user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
+                }
+
+                //if (model.UserRole != user.AspNetRoles.Id)
+                if (model.UserRole != user.AspNetRoles.Id)
+                {
+                    //user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    user.AspNetRoles.Name = model.UserRole.ToString();
+                }
+
+                db.SaveChanges();
+                return RedirectToAction("Edit", new { id = user.Id });
             }
 
-            if (model.UserRole != user.AspNetRoles.Id)
-            {
-                user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
-            }
-
-            db.SaveChanges();
+            
             // End solution.
 
-            return RedirectToAction("Edit", new { id = user.Id });
+            
         }
     }
 }

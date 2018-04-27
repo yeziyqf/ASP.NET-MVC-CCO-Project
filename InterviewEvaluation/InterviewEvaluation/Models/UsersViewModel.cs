@@ -17,6 +17,7 @@ namespace InterviewEvaluation.Models
 
         public int Id { get; set; }
 
+
         public int UserRole { get; set; }
 
         public string NewPassword { get; set; }
