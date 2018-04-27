@@ -18,7 +18,7 @@
                     <div class="col-md-10">
                         @*@Html.TextBoxFor(m => m.Id, new { @class = "form-control" })*@
                         <li>@User.Identity.AuthenticationType</li>
-                        <li>@User.Identity</li>
+                        <li>@user.Id</li>
                     </div>
                 </div>
                 <div class="form-group">
@@ -30,15 +30,15 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label" })
                      <div class="col-md-10">
-                         @*@Html.PasswordFor(m => m.UserRole, new { @class = "form-control" })*@
-                         @Html.TextBoxFor(m => m.UserRole, new { @class = "form-control" })
-                         @*@Html.DropDownListFor(m => m.UserRole, new List<SelectListItem>
+                         @*@Html.TextBoxFor(m => m.UserRole, new { @class = "form-control" })*@
+                         @Html.DropDownListFor(m => m.UserRole, new List<SelectListItem>
                             //{ new SelectListItem{Text="Admin", Value="User"},
                             //  new SelectListItem{Text="User", Value="Admin"}}, "Please select")
                          { new SelectListItem{Text="Admin", Value="1"},
-                              new SelectListItem{Text="User", Value="0"}}, "Please select")*@
+                              new SelectListItem{Text="User", Value="0"}}, "Please select")
                  </div>
-                </div>
+                </div>                
+                
                 <div class="form-group">
                     @Html.LabelFor(m => m.NewPassword, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
@@ -54,9 +54,3 @@
         </section>
     </div>
 </div>
-
-
-<script>
-    console.log(m.UserRole)
-    console.log($("#m.UserRole").val())
-</script>

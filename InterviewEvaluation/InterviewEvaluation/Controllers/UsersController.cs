@@ -132,9 +132,8 @@ namespace InterviewEvaluation.Controllers
 
                 if (model.UserRole != user.AspNetRoles.Id)
                 {
-                    //user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
-                    //user.AspNetRoles.Id = model.UserRole;
-                    user.AspNetRoles.Name = model.UserRole.ToString();
+                    user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    //user.AspNetRoles.Name = model.UserRole.ToString();
                 }
 
                 db.SaveChanges();
@@ -151,11 +150,10 @@ namespace InterviewEvaluation.Controllers
                     user.PasswordHash = AuthController.EncodePasswordMd5(model.NewPassword);
                 }
 
-                //if (model.UserRole != user.AspNetRoles.Id)
                 if (model.UserRole != user.AspNetRoles.Id)
                 {
-                    //user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
-                    user.AspNetRoles.Name = model.UserRole.ToString();
+                    user.AspNetRoles = db.AspNetRoles.FirstOrDefault(x => x.Id == model.UserRole);
+                    //user.AspNetRoles.Name = model.UserRole.ToString();
                 }
 
                 db.SaveChanges();

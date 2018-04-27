@@ -20,6 +20,7 @@ namespace InterviewEvaluation.Models
 
         public int UserRole { get; set; }
 
+
         public string NewPassword { get; set; }
     }
 }
