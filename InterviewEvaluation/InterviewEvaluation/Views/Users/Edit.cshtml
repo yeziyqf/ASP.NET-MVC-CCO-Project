@@ -22,10 +22,8 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @*@Html.TextBoxFor(m => m.UserRole, new { @class = "form-control" })*@
                         @Html.DropDownListFor(m => m.UserRole, new List<SelectListItem>
-                            //{ new SelectListItem{Text="Admin", Value="User"},
-                            //  new SelectListItem{Text="User", Value="Admin"}}, "Please select")
+                        // id value 1 stands for user, id value 2 stands for Admin.
                          { new SelectListItem{Text="Admin", Value="2"},
                               new SelectListItem{Text="User", Value="1"}}, "Please select")
                     </div>

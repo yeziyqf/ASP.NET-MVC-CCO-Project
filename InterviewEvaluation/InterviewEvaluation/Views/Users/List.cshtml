@@ -94,13 +94,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-    console.log("hello_List!")
     function getSearch() {
         console.log($("#query").val())
         console.log(typeof($("#query").val()))
         $.ajax({
             type: "POST",
-            //url: "../../../Controllers/Search",
             url: "./Search",
             data: { query: $("#query").val() },
             dataType: "json",

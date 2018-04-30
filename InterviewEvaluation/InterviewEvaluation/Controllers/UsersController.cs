@@ -113,11 +113,6 @@ namespace InterviewEvaluation.Controllers
         public ActionResult Edit(UsersEditViewModel model)
         {
             // Add Data Management evaluation section changes here.
-
-
-
-            // End changes.
-
             // Solution:
             if (model.Id != 0)
             {
@@ -172,10 +167,8 @@ namespace InterviewEvaluation.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Edit", new { id = user.Id });
             }
-            
             // End solution.
-
-            
+            // End changes.
         }
     }
 }
