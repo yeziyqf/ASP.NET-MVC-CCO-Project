@@ -336,6 +336,14 @@ hr.bold {
     z-index:120;
 }
 
+.home-section-single {
+    padding-top: 130px;
+    padding-bottom: 110px;
+	display:block;
+    position:relative;
+    z-index:120;
+}
+
 .map-section {
     padding-top: 50px;
     padding-bottom: 110px;
@@ -857,6 +865,10 @@ ul.footer-menu li:first-child a {
 
 footer .social-widget ul.team-social li a {
 	margin: 0 5px;
+}
+
+.align-left {
+	text-align: left;
 }
 
 /* === testimonial slide === */
