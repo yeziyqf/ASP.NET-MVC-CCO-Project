@@ -605,9 +605,7 @@ hr.bold {
 	margin-bottom: 30px;
 }
 
-/* ===========================
---- Works
-============================ */
+/*  Workers  */
 
 #owl-works {
 
@@ -623,9 +621,7 @@ hr.bold {
     height: auto;
 }
 
-/* ===========================
---- Contact
-============================ */
+/* Contact Form */
 
 
 .form-group {
@@ -699,9 +695,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 
 
 
-/* ===========================
---- Bottom
-============================ */
+/*  Bottom */
 
 .boxcol-25 {
 	width: 100%;
@@ -742,7 +736,6 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 	text-transform: none;
 	line-height: 1;
 
-	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\e684";
@@ -787,7 +780,6 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 	background: #333;
 }
 
-/* --- widget --- */
 
 form.search-form input {
 	font-size: 18px;
@@ -805,9 +797,7 @@ form.search-form input:focus {
 
 
 
-/* ===========================
---- Footer
-============================ */
+/* Footer */
 
 footer {
     background-color: #404040;
@@ -1071,6 +1061,10 @@ a.btn:focus{
 
 .img-shadow {
 	box-shadow:0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.img-adjust {
+	height: 262.5px
 }
 
 .title-employee {
